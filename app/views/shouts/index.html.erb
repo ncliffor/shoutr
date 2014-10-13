@@ -1,1 +1,7 @@
 <h2>ShoutStream</h2>
+
+<ul>
+  <% @shouts.each do |shout| %>
+    <li><%= shout.body %></li>
+  <% end %>
+</ul>
