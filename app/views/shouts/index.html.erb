@@ -5,7 +5,7 @@
   <%= form.submit "SHOUT!" %>
 <% end %>
 
-<h4>Users</h4>
+<h4>Users not Following</h4>
 <ul>
   <% @users_i_do_not_follow.each do |user| %>
     <li><%= user.email %> <%= button_to "Follow", [user, :following_relationship] %></li>
@@ -20,8 +20,12 @@
 </ul>
 
 <h4>Shouts</h4>
+
 <ul>
-  <% @shouts.each do |shout| %>
-    <li><%= shout.body %></li>
+  <% @timeline.each do |shout| %>
+    <li>
+      <strong><%= shout.user.email %></strong>: <%= shout.body %>
+      (<%= time_ago_in_words shout.created_at %> ago)
+    </li>
   <% end %>
 </ul>
