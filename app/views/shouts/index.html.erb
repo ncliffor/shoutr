@@ -22,10 +22,5 @@
 <h4>Shouts</h4>
 
 <ul>
-  <% @timeline.each do |shout| %>
-    <li>
-      <strong><%= shout.user.email %></strong>: <%= shout.body %>
-      (<%= time_ago_in_words shout.created_at %> ago)
-    </li>
-  <% end %>
+  <%= render @timeline %>
 </ul>
