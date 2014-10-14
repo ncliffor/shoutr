@@ -16,6 +16,13 @@ class UsersController < ApplicationController
     end
   end
 
+  def index
+    @users = User.where.not(id: current_user.id)
+    @users_i_follow = current_user.followed_users
+    @users_i_do_not_follow = User.where.not(id: current_user.followed_user_ids)
+    @following_relationship = FollowingRelationship.new
+  end
+
   private
 
   def user_params
