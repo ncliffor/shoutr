@@ -7,8 +7,15 @@
 
 <h4>Users</h4>
 <ul>
-  <% @users.each do |user| %>
+  <% @users_i_do_not_follow.each do |user| %>
     <li><%= user.email %> <%= button_to "Follow", [user, @following_relationship] %></li>
+  <% end %>
+</ul>
+
+<h4>People I Follow</h4>
+<ul>
+  <% @users_i_follow.each do |user| %>
+    <li><%= user.email %></li>
   <% end %>
 </ul>
 
