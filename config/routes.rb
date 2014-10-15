@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   end
 
   resources :text_subjects, only: [:create]
+  resources :image_subjects, only: [:create]
 
   resources :shouts, only: [:index]
 
