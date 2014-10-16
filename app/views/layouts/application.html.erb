@@ -16,6 +16,11 @@
     |
     <%= link_to "Users", users_path %>
     <%= link_to "Followers", followers_path %>
+    <%= link_to "Search", search_path %>
+    <%= form_tag :search, method: :get do %>
+      <%= text_field_tag :query %>
+      <%= submit_tag "SEARCH" %>
+    <% end %>
   <% else %>
     <%= link_to "Sign in", new_session_path %>
     <%= link_to "Sign up", new_user_path %>

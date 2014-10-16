@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  has_many :shouts
+  has_many :shouts, dependent: :destroy
 
 
   has_many :follower_relationships,
