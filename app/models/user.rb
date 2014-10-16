@@ -16,6 +16,7 @@ class User < ActiveRecord::Base
 
   validates :email, presence: true, uniqueness: true
   validates :password_digest, presence: true
+  validates :username, uniqueness: true
 
   def follow(user_to_follow)
     followed_users << user_to_follow
@@ -34,5 +35,9 @@ class User < ActiveRecord::Base
 
     Shout.where(user_id: timeline_user_ids)
       .order(created_at: :desc).limit(20)
+  end
+
+  def to_param
+    username
   end
 end
