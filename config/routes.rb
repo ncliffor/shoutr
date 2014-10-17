@@ -11,6 +11,10 @@ Rails.application.routes.draw do
 
   resources :shouts, only: [:index]
 
+  resources :shouts, only: [] do
+    resource :favorite, only: [:create, :destroy]
+  end
+
   root("shouts#index")
 
   get "/:username", to: "users#show", as: "user"

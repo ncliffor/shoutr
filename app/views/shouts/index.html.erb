@@ -21,6 +21,8 @@
 <h4>Shouts</h4>
 
 <ul>
-  <%= render @timeline %>
+  <% @timeline.each do |timeline| %>
+    <%= render timeline %>
+  <% end %>
   <%= paginate @timeline %>
 </ul>

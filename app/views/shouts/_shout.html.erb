@@ -1,4 +1,9 @@
 <li>
 <strong><%= shout.user.email %></strong>: <%= render shout.subject %><br />
   (<%= time_ago_in_words shout.created_at %> ago)
+  <% if current_user.favorites?(shout) %>
+    <%= button_to "You Love This...unlike?", shout_favorite_path(shout), method: :delete %>
+  <% else %>
+  <%= button_to "Favorite", shout_favorite_path(shout) %>
+<% end %>
 </li>

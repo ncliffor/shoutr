@@ -3,6 +3,7 @@ class ShoutsController < ApplicationController
 
   def index
     @timeline = current_user.timeline.page(params[:page]).per(3)
+    @shouts = Shout.all
     @text_subject = TextSubject.new
     @image_subject = ImageSubject.new
     @users_i_follow = current_user.followed_users
